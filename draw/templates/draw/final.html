@@ -21,28 +21,18 @@
 </head>
 <body>
     <!-- You may change the dimensions of this canvas -->
-    <h1>Welcome</h1>
-    <form action="/action_page.php">
-        <label for="fname">Your Name</label>
-        <input type="text" id="userName" name="userName"><br><br>
-    </form>
-    <form action="/" method="get">
-        <button id="next" formaction="/draw/final" type="submit">Next</button>
-    </form>
+    <h1>Fin</h1>
+        <button id="next">Match</button>
     
 </body>
 <script>
 
-
-var uid = (Date.now() % 10000).toString();
-
-
-
-
 var socket = new WebSocket(
-    'ws://' + window.location.host + '/ws/draw');
+        'ws://' + window.location.host + '/ws/draw');
 
 
+var name = sessionStorage.getItem("Name");
+var uid = sessionStorage.getItem("Uid");
 var next = document.getElementById("next");
 
 if (next.addEventListener) {
@@ -53,11 +43,18 @@ else if (next.attachEvent) {
 }
 
 function clickFunction() {
-    var name = $("#userName").val();
-    sessionStorage.setItem("Name", name);
-    sessionStorage.setItem("Uid", uid);
-    //socket.send("{\"version\" : \"final\", \"uid\" : \"" + uid + "\", \"name\" : \"" + name + "\"}");
+    
+    socket.send("{\"version\" : \"display\", \"uid\" : \"" + uid + "\", \"name\" : \"" + name + "\"}");
 }
+
+/*socket.onmessage = function(receivedMessage) {
+    var received = JSON.parse(receivedMessage.data);
+    if (received.version == "final") {
+        name = received.name;
+        uid = received.uid;
+    }
+}*/
+
 
 </script>
 </html>

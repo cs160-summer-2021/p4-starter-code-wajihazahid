@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>P4 Drawing</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'draw/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <script type="text/javascript" src="{% static 'draw/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'draw/vendor/paper/paper-full.min.js' %}"></script>
+
+    <style type="text/css">
+    
+    #next {
+        background-color: aqua; 
+    }
+
+    body {
+        background-color:blue;
+    }
+
+    .text {
+        color:white;
+        text-align: center;
+    }
+
+    </style>
+
+</head>
+<body>
+    <!-- You may change the dimensions of this canvas -->
+    <h1 class = "text">Display</h1>
+    <div id="map">
+
+    </div>
+    
+</body>
+<script>
+
+var socket = new WebSocket(
+        'ws://' + window.location.host + '/ws/draw');
+//var socket = new WebSocket.Server({
+   // port: 5000
+//});
+  //var socket = new WebSocket(
+       // "wss://127.0.0.1:8000/draw/display?");
+
+ 
+
+socket.onmessage = function(receivedMessage) {
+    var received = JSON.parse(receivedMessage.data);
+    console.log(received);
+    if (received.version == "display") {
+        console.log(received.name);
+
+        const user = document.createElement("h3");
+
+        const name = document.createTextNode("Name: " + received.name);
+
+        user.className = "text";
+
+        user.appendChild(name);
+        
+
+        const bubble = document.getElementById("map");
+        bubble.appendChild(user);
+    }
+}
+
+</script>
+</html>
