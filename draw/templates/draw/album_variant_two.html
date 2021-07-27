@@ -1,0 +1,157 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>P4 Drawing</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'draw/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'draw/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'draw/vendor/paper/paper-full.min.js' %}"></script>
+
+    <style type="text/css">
+    </style>
+
+</head>
+
+<style type="text/css">
+
+    #logo{
+        padding-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 35%;
+    }
+
+    h1{
+        font-family: 'Baloo Chettan 2';
+        color: #f62681;
+        font-size: 70px;
+        text-align: center;
+        padding-top: 65px;
+        /*padding-top: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 65%;*/
+    }
+
+    #buttonBox{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+    }
+
+    .button {
+          background-color: white;
+          border: none;
+          color: black;
+          padding: 15px 60px;
+          border-radius: 8px;
+          white-space: nowrap;
+          text-align: center;
+          font-family: 'Baloo Chettan 2';
+          text-decoration: none;
+          display: inline-block;
+          font-size: 60px;
+    }
+
+
+</style>
+
+<script type="text/javascript">
+    function changeDream2() {
+        var dream_src = "https://i.ibb.co/Hpn5y5J/dreamland-2.png";
+        var dream_select = "https://i.ibb.co/nmmz9HN/dreamland-select-2.png";
+        //<img src="https://i.ibb.co/nmmz9HN/dreamland-select-2.png" alt="dreamland-select-2" border="0"></a>        
+        var image = document.getElementById('dreamland-2');
+        if (image.src.match(dream_src)) {
+            image.src = dream_select;
+        }
+        else {
+            image.src = dream_src;
+        }
+    }
+
+    function changeMOTM2() {
+        var motm_src = "https://i.ibb.co/HrLQS9J/motm-2.png";
+        var motm_select = "https://i.ibb.co/0FHt1hh/motm-select-2.png";
+        //<img src="https://i.ibb.co/0FHt1hh/motm-select-2.png" alt="motm-select-2" border="0">
+        var image = document.getElementById('motm-2');
+        if (image.src.match(motm_src)) {
+            image.src = motm_select;
+        }
+        else {
+            image.src = motm_src;
+        }
+    }
+
+    function changeImmunity2() {
+        var imm_src = "https://i.ibb.co/2P1q0zz/immunity-2.png";
+        var imm_select = "https://i.ibb.co/RcDzPWH/immunity-select-2.png";
+        //<img src="https://i.ibb.co/RcDzPWH/immunity-select-2.png" alt="immunity-select-2" border="0">
+        var image = document.getElementById('immunity-2');
+        if (image.src.match(imm_src)) {
+            image.src = imm_select;
+        }
+        else {
+            image.src = imm_src;
+        }
+    }
+
+    
+
+</script>
+
+
+<body style="background-color: #474646">
+    <!-- You may change the dimensions of this canvas -->
+    
+    <div class="container-fluid" style="height: 100vh">
+        <div class="row">
+            <div class="col" style="height: 3vh">
+                <div id="logo">
+                    <img src="https://i.ibb.co/TPmC7pR/music-link-logo-2.png" alt="music-link-logo-2" border="0" width="300" height="84">
+                </div>
+            </div>
+            <div class="w-100"></div>
+            <div class="col"style="height: 14vh">
+                <h1>Pick 3 no-skip albums:</h1>
+            </div>
+            <div class="w-100"></div>
+            <div class="col" style="height: 23vh" align="center">
+                <img src="https://i.ibb.co/Hpn5y5J/dreamland-2.png" id="dreamland-2" border="0" width="370" height="370" onclick="changeDream2()">
+            </div>
+            <div class="col" align="center">
+                <img src="https://i.ibb.co/HrLQS9J/motm-2.png" id="motm-2" border="0" width="370" height="370" onclick="changeMOTM2()">
+            </div>
+            <div class="w-100"></div>
+            <div class="col" style="height: 23vh" align="center">
+                <img src="https://i.ibb.co/2P1q0zz/immunity-2.png" id="immunity-2" border="0" width="370" height="370" onclick="changeImmunity2()">
+            </div>
+            <div class="col" align="center">
+                <img src="https://i.ibb.co/d4nrLJC/ye-2.png" alt="ye-2" border="0" width="370" height="370">
+            </div>
+            <div class="w-100"></div>
+            <div class="col" style="height: 23vh" align="center">
+                <img src="https://i.ibb.co/fDk9KSJ/mbdtf-2.png" alt="mbdtf-2" border="0" width="370" height="370">
+            </div>
+            <div class="col" align="center">
+                <img src="https://i.ibb.co/M1QrG9G/nfr-2.png" alt="nfr-2" border="0" width="370" height="370">
+            </div>
+            <div class="w-100"></div>
+            <div class="col" style="height: 14vh">
+                <div id="buttonBox">
+                    <a href="/draw/songs" class="button">Done</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+

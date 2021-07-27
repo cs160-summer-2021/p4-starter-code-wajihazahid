@@ -41,7 +41,7 @@
         display: block;
         margin-left: auto;
         margin-right: auto;
-        width: 30%;
+        width: 40%;
     }
 
     .button {
@@ -62,45 +62,35 @@
 </style>
 
 <script type="text/javascript">
-    function changeRap() {
-        var rap_src = "https://i.ibb.co/7SQC88Q/Copy-of-rap-genre.png";
-        var rap_select = "https://i.ibb.co/yy23y1h/rap-select.png";
-        //<img src="https://i.ibb.co/yy23y1h/rap-select.png" alt="rap-select" border="0">
-
-        var image = document.getElementById('rap');
-        if (image.src.match(rap_src)) {
-            image.src = rap_select;
+    function changeLana() {
+        var lana_src = "https://i.ibb.co/kG7LVgD/lana.png";
+        var lana_select = "https://i.ibb.co/G9dFMNw/lana-select.png";
+        //<img src="https://i.ibb.co/BrQLS7M/glass-select.png" alt="glass-select" border="0"></a>
+        //<img src="https://i.ibb.co/G9dFMNw/lana-select.png" alt="lana-select" border="0">    
+        var image = document.getElementById('lana');
+        if (image.src.match(lana_src)) {
+            image.src = lana_select;
         }
         else {
-            image.src = rap_src;
+            image.src = lana_src;
         }
     }
 
-    function changePop() {
-        var pop_src = "https://i.ibb.co/dmyxF86/pop-genre.png";
-        var pop_select = "https://i.ibb.co/D44pV9W/pop-select.png";
-        //<img src="https://i.ibb.co/D44pV9W/pop-select.png" alt="pop-select" border="0">
-        var image = document.getElementById('pop');
-        if (image.src.match(pop_src)) {
-            image.src = pop_select;
+    function changeClairo() {
+        var clairo_src = "https://i.ibb.co/hdQjW7F/clairo.png";
+        var clairo_select = "https://i.ibb.co/kyHz8vy/clairo-select.png";
+        //<img src="https://i.ibb.co/kyHz8vy/clairo-select.png" alt="clairo-select" border="0">
+        var image = document.getElementById('clairo');
+        if (image.src.match(clairo_src)) {
+            image.src = clairo_select;
         }
         else {
-            image.src = pop_src;
+            image.src = clairo_src;
         }
     }
 
-    function changeIndie() {
-        var ind_src = "https://i.ibb.co/N25Vjtv/indie-genre-1.png";
-        var ind_select = "https://i.ibb.co/MP7CGSQ/indie-select.png"
-        //<img src="https://i.ibb.co/MP7CGSQ/indie-select.png" alt="indie-select" border="0">       
-        var image = document.getElementById('indie');
-        if (image.src.match(ind_src)) {
-            image.src = ind_select;
-        }
-        else {
-            image.src = ind_src;
-        }
-    }
+
+    
 
 </script>
 
@@ -116,43 +106,39 @@
                 </div>
             </div>
             <div class="w-100"></div>
-            <div class="col"style="height: 17vh">
-                <h1>Start by choosing your 3 favorite genres:</h1>
+            <div class="col"style="height: 14vh">
+                <h1>Pick your 2 favorite indie artists:</h1>
             </div>
             <div class="w-100"></div>
-            <div class="col" style="height: 22vh">
-                <img src="https://i.ibb.co/7SQC88Q/Copy-of-rap-genre.png" id="rap" border="0" height="296" width="296" onclick="changeRap()">
+            <div class="col" style="height: 23vh" align="center">
+                <img src="https://i.ibb.co/kG7LVgD/lana.png" id="lana" border="0" width="370" height="370" onclick="changeLana()">
             </div>
-            <div class="col">
-                <img src="https://i.ibb.co/dmyxF86/pop-genre.png" id="pop" border="0" height="296" width="296" onclick="changePop()">
-            </div>
-            <div class="col">
-                <img src="https://i.ibb.co/N25Vjtv/indie-genre-1.png" id="indie" border="0" height="296" width="296" onclick="changeIndie()">
+            <div class="col" align="center">
+                <img src="https://i.ibb.co/hdQjW7F/clairo.png" id="clairo" border="0" width="370" height="370" onclick="changeClairo()">
             </div>
             <div class="w-100"></div>
-            <div class="col" style="height: 22vh">
-                <img src="https://i.ibb.co/swZYN5P/edm-genre.png" alt="edm-genre" border="0" height="296" width="296">
+            <div class="col" style="height: 23vh" align="center">
+                <img src="https://i.ibb.co/YfpxZ4G/arctic.png" alt="arctic" border="0" width="370" height="370">
             </div>
-            <div class="col">
-                <img src="https://i.ibb.co/HYcCXq2/rock-genre.png" alt="rock-genre" border="0" height="296" width="296">
-            </div>
-            <div class="col">
-                <img src="https://i.ibb.co/rb4cfbX/r-b-genre.png" alt="r-b-genre" border="0" height="296" width="296">
+            <div class="col" align="center">
+                <img src="https://i.ibb.co/x5RfBbm/phoebe.png" alt="phoebe" border="0" width="370" height="370">
             </div>
             <div class="w-100"></div>
-            <div class="col" style="height: 22vh">
-                <img src="https://i.ibb.co/SVzPnQ6/jazz-genre-1.png" alt="jazz-genre-1" border="0" height="296" width="296">
+            <div class="col" style="height: 23vh" align="center">
+                <img src="https://i.ibb.co/rsbRtM2/chvrches.png" alt="chvrches" border="0" width="370" height="370">
             </div>
-            <div class="col">
-                <img src="https://i.ibb.co/2NNpMcF/country-genre.png" alt="country-genre" border="0" height="296" width="296">
-            </div>
-            <div class="col">
-                <img src="https://i.ibb.co/r2ngf84/punk-genre.png" alt="punk-genre" border="0" height="296" width="296">
+            <div class="col" align="center">
+                <img src="https://i.ibb.co/QC5n5nY/lorde.png" alt="lorde" border="0" width="370" height="370">
             </div>
             <div class="w-100"></div>
             <div class="col" style="height: 14vh">
                 <div id="buttonBox">
-                    <a href="/draw/rap_artists" class="button">Done</a>
+                    <a href="/draw/album" class="button">V1</a>
+                </div>
+            </div>
+            <div class="col">
+                <div id="buttonBox">
+                    <a href="/draw/album_variant_two" class="button">V2</a>
                 </div>
             </div>
         </div>

@@ -1,0 +1,209 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>P4 Drawing</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'draw/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
+    <script type="text/javascript" src="{% static 'draw/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'draw/vendor/paper/paper-full.min.js' %}"></script>
+
+    <style type="text/css">
+    </style>
+
+</head>
+
+<style type="text/css">
+
+    #logo{
+        padding-top: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 35%;
+    }
+
+    h1{
+        font-family: 'Baloo Chettan 2';
+        color: #f62681;
+        font-size: 70px;
+        text-align: center;
+        padding-top: 65px;
+        /*padding-top: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 65%;*/
+    }
+
+    #buttonBox{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 30%;
+    }
+
+    .button {
+          background-color: white;
+          border: none;
+          color: black;
+          padding: 15px 60px;
+          border-radius: 8px;
+          white-space: nowrap;
+          text-align: center;
+          font-family: 'Baloo Chettan 2';
+          text-decoration: none;
+          display: inline-block;
+          font-size: 60px;
+    }
+
+
+</style>
+
+<script type="text/javascript">
+    function changeHotSugar() {
+        var hot_src = "https://i.ibb.co/YbrZkBG/hot-sugar-4.png";
+        var hot_select = "https://i.ibb.co/26BjMnj/hot-sugar-select.png";
+        //<img src="https://i.ibb.co/26BjMnj/hot-sugar-select.png" alt="hot-sugar-select" border="0">        
+        var image = document.getElementById('hot-sugar');
+        if (image.src.match(hot_src)) {
+            image.src = hot_select;
+        }
+        else {
+            image.src = hot_src;
+        }
+    }
+
+    function changeSoloDolo() {
+        var solo_src = "https://i.ibb.co/gdGkLrD/solo-dolo-1.png";
+        var solo_select = "https://i.ibb.co/ZTH31Mn/solo-dolo-select.png";
+        //<img src="https://i.ibb.co/ZTH31Mn/solo-dolo-select.png" alt="solo-dolo-select" border="0">       
+        var image = document.getElementById('solo-dolo');
+        if (image.src.match(solo_src)) {
+            image.src = solo_select;
+        }
+        else {
+            image.src = solo_src;
+        }
+    }
+
+    function changeHell() {
+        var hell_src = "https://i.ibb.co/drtTWgj/hell-of-a-life.png";
+        var hell_select = "https://i.ibb.co/chPV1Sf/hell-of-a-life-select.png";
+        //<img src="https://i.ibb.co/chPV1Sf/hell-of-a-life-select.png" alt="hell-of-a-life-select" border="0">
+        var image = document.getElementById('hell-of-a-life');
+        if (image.src.match(hell_src)) {
+            image.src = hell_select;
+        }
+        else {
+            image.src = hell_src;
+        }
+    }
+
+    function changeSoftly() {
+        var soft_src = "https://i.ibb.co/rbBr9DV/softly.png";
+        var soft_select = "https://i.ibb.co/gMmDpNd/softly-select.png";
+        //<img src="https://i.ibb.co/gMmDpNd/softly-select.png" alt="softly-select" border="0">
+        var image = document.getElementById('softly');
+        if (image.src.match(soft_src)) {
+            image.src = soft_select;
+        }
+        else {
+            image.src = soft_src;
+        }
+    }
+
+    
+
+</script>
+
+
+<body style="background-color: #474646">
+    <!-- You may change the dimensions of this canvas -->
+    
+    <div class="container-fluid" style="height: 100vh">
+        <div class="row">
+            <div class="col" style="height: 3vh">
+                <div id="logo">
+                    <img src="https://i.ibb.co/TPmC7pR/music-link-logo-2.png" alt="music-link-logo-2" border="0" width="300" height="84">
+                </div>
+            </div>
+            <div class="w-100"></div>
+            <div class="col"style="height: 14vh">
+                <h1>Pick your 4 favorite tracks:</h1>
+            </div>
+            <div class="w-100"></div>
+            <div class="col" style="height: 7.3vh">
+                <img src="https://i.ibb.co/YbrZkBG/hot-sugar-4.png" id="hot-sugar" border="0" width="900" height="90" onclick="changeHotSugar()">
+            </div>
+            <div class="w-100"></div>
+            <div class="col" style="height: 7.3vh">
+                <img src="https://i.ibb.co/gdGkLrD/solo-dolo-1.png" id="solo-dolo" border="0" width="900" height="90" onclick="changeSoloDolo()">      
+            </div>
+            <div class="w-100"></div>
+            <div class="col" style="height: 7.3vh">
+                <img src="https://i.ibb.co/drtTWgj/hell-of-a-life.png" id="hell-of-a-life" border="0" width="900" height="90" onclick="changeHell()">
+            </div>
+            <div class="w-100"></div>
+            <div class="col" style="height: 7.3vh">
+                <img src="https://i.ibb.co/rbBr9DV/softly.png" id="softly" border="0" width="900" height="90" onclick="changeSoftly()">
+            </div>
+            <div class="w-100"></div>
+            <div class="col" style="height: 7.3vh">
+                <img src="https://i.ibb.co/r6q3GT1/your-love-1.png" alt="your-love-1" border="0" width="900" height="90">            
+            </div>
+            <div class="w-100"></div>
+            <div class="col" style="height: 7.3vh">
+                <img src="https://i.ibb.co/ZcFsDz2/doin-time.png" alt="doin-time" border="0" width="900" height="90">
+            </div>
+            <div class="w-100"></div>
+            <div class="col" style="height: 7.3vh">
+                <img src="https://i.ibb.co/WpdmGkY/bags.png" alt="bags" border="0" width="900" height="90">
+            </div>
+            <div class="w-100"></div>
+            <div class="col" style="height: 7.3vh">
+                <img src="https://i.ibb.co/x6Qp294/ghost-town.png" alt="ghost-town" border="0" width="900" height="90">
+            </div>
+            <div class="w-100"></div>
+            <div class="col" style="height: 7.3vh">
+                <img src="https://i.ibb.co/44Kc4js/violent-crimes.png" alt="violent-crimes" border="0" width="900" height="90">
+            </div>
+            <div class="w-100"></div>
+            <div class="col" style="height: 7.3vh">
+                <img src="https://i.ibb.co/V30X4Gd/up-up-away.png" alt="up-up-away" border="0" width="900" height="90">
+            </div>
+            <div class="w-100"></div>
+            <div class="col" style="height: 14vh">
+                <div id="buttonBox">
+                    <a href="/draw/end_screen" class="button">Done</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+<!-- <div class="container-fluid" style="height: 100vh">
+        <div class="row">
+            <div class="col" style="height: 5vh"></div>
+            <div class="w-100"></div>
+            <div class="col bg-warning"style="height: 20vh"></div>
+            <div class="col bg-success" style="height: 25vh"></div>
+            <div class="col bg-primary"></div>
+            <div class="col bg-success"></div>
+            <div class="w-100"></div>
+            <div class="col bg-dark" style="height: 25vh"></div>
+            <div class="col bg-info"></div>
+            <div class="col bg-dark"></div>
+            <div class="w-100"></div>
+            <div class="col bg-success" style="height: 25vh"></div>
+            <div class="col bg-primary"></div>
+            <div class="col bg-success"></div>
+            <div class="w-100"></div>
+        </div>
+    </div>
+ -->
