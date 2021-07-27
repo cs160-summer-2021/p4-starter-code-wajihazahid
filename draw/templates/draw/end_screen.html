@@ -95,8 +95,10 @@
         <img src="https://i.ibb.co/TPmC7pR/music-link-logo-2.png" alt="music-link-logo-2" border="0" width="900" height="252">
     </div>
 
-    <h1>So, definitely a Glass Animals and Kanye fan huh?</h1>
-    <h2>It's okay, we know some other folks who love Dreamland and Ye as much as you do. Check out the screen to see your matches.</h2>
+    <div id="map1">
+
+    </div>
+    <h2>It's okay, we know some other folks who love Dreamland and Man On The Moon as much as you do. Check out the screen to see your matches.</h2>
 
 
     <!-- <div id="buttonBox">
@@ -106,5 +108,109 @@
 
 
 </body>
+
+<script>
+
+    var socket = new WebSocket(
+            'ws://' + window.location.host + '/ws/draw');
+    
+    var name = sessionStorage.getItem("Name");
+
+
+    var genre_1_name = sessionStorage.getItem("Genre_1_name");
+    var genre_1_src = sessionStorage.getItem("Genre_1_src");
+    var genre_2_name = sessionStorage.getItem("Genre_2_name");
+    var genre_2_src = sessionStorage.getItem("Genre_2_src");
+    var genre_3_name = sessionStorage.getItem("Genre_3_name");
+    var genre_3_src = sessionStorage.getItem("Genre_3_src");
+
+    var artist_1_name = sessionStorage.getItem("Rap_Artist_1_name");
+    var artist_1_src = sessionStorage.getItem("Rap_Artist_1_src");
+    var artist_2_name = sessionStorage.getItem("Rap_Artist_2_name");
+    var artist_2_src = sessionStorage.getItem("Rap_Artist_2_src");
+
+    var artist_3_name = sessionStorage.getItem("Pop_Artist_1_name");
+    var artist_3_src = sessionStorage.getItem("Pop_Artist_1_src");
+    var artist_4_name = sessionStorage.getItem("Pop_Artist_2_name");
+    var artist_4_src = sessionStorage.getItem("Pop_Artist_2_src");
+
+    var artist_5_name = sessionStorage.getItem("Indie_Artist_1_name");
+    var artist_5_src = sessionStorage.getItem("Indie_Artist_1_src");
+    var artist_6_name = sessionStorage.getItem("Indie_Artist_2_name");
+    var artist_6_src = sessionStorage.getItem("Indie_Artist_2_src");
+
+
+    const first = document.createElement("h1");
+
+    var artist = "";
+    if (artist_1_name != null) {
+        artist = artist_1_name;
+    }
+    else if (artist_2_name != null) {
+        artist = artist_2_name;
+    }
+    else if (artist_3_name != null) {
+        artist = artist_3_name;
+    }
+    else if (artist_4_name != null) {
+        artist = artist_4_name;
+    }
+    else if (artist_5_name != null) {
+        artist = artist_5_name;
+    }
+    else if (artist_6_name != null) {
+        artist = artist_6_name;
+    }
+
+    var secondartist = "";
+    if (artist_1_name != null && artist != artist_1_name) {
+        secondartist = " and " + artist_1_name;
+    }
+    else if (artist_2_name != null && artist != artist_2_name) {
+        secondartist = " and " + artist_2_name;
+    }
+    else if (artist_3_name != null && artist != artist_3_name) {
+        secondartist = " and " + artist_3_name;
+    }
+    else if (artist_4_name != null && artist != artist_4_name) {
+        secondartist = " and " + artist_4_name;
+    }
+    else if (artist_5_name != null && artist != artist_5_name) {
+        secondartist = " and " + artist_5_name;
+    }
+    else if (artist_6_name != null && artist != artist_6_name) {
+        secondartist = " and " + artist_6_name;
+    }
+
+    const firstText = document.createTextNode("So, definitely a " + artist + secondartist + " fan huh?");
+
+    first.appendChild(firstText);
+
+    const bubble = document.getElementById("map1");
+    bubble.appendChild(first);
+
+
+    var album_name = sessionStorage.getItem("Album_name");
+    var album_src = sessionStorage.getItem("Album_src");
+
+    var songs_1_name = sessionStorage.getItem("Songs_1_name");
+    var songs_2_name = sessionStorage.getItem("Songs_2_name");
+    var songs_3_name = sessionStorage.getItem("Songs_3_name");
+    var songs_4_name = sessionStorage.getItem("Songs_4_name");
+
+    socket.onopen = function() {        
+        socket.send("{\"version\" : \"display\", \"songs_4_name\" : \"" + songs_4_name + "\", \"songs_3_name\" : \"" + songs_3_name + "\", \"songs_2_name\" : \"" + songs_2_name + "\", \"songs_1_name\" : \"" + songs_1_name + "\", \"album_name\" : \"" + album_name + "\", \"album_src\" : \"" + album_src + "\", \"artist_6_name\" : \"" + artist_6_name + "\", \"artist_6_src\" : \"" + artist_6_src + "\", \"artist_5_name\" : \"" + artist_5_name + "\", \"artist_5_src\" : \"" + artist_5_src + "\", \"artist_4_name\" : \"" + artist_4_name + "\", \"artist_4_src\" : \"" + artist_4_src + "\", \"artist_3_name\" : \"" + artist_3_name + "\", \"artist_3_src\" : \"" + artist_3_src + "\", \"artist_1_name\" : \"" + artist_1_name + "\", \"artist_1_src\" : \"" + artist_1_src + "\", \"artist_2_name\" : \"" + artist_2_name + "\", \"artist_2_src\" : \"" + artist_2_src + "\", \"genre_1_name\" : \"" + genre_1_name + "\", \"genre_1_src\" : \"" + genre_1_src + "\", \"genre_2_name\" : \"" + genre_2_name + "\", \"genre_2_src\" : \"" + genre_2_src + "\", \"genre_3_name\" : \"" + genre_3_name + "\", \"genre_3_src\" : \"" + genre_3_src + "\", \"name\" : \"" + name + "\"}");
+    }
+    
+    /*socket.onmessage = function(receivedMessage) {
+        var received = JSON.parse(receivedMessage.data);
+        if (received.version == "final") {
+            name = received.name;
+            uid = received.uid;
+        }
+    }*/
+    
+    
+    </script>
 
 </html>

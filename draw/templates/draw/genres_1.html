@@ -61,48 +61,7 @@
 
 </style>
 
-<script type="text/javascript">
-    function changeRap() {
-        var rap_src = "https://i.ibb.co/7SQC88Q/Copy-of-rap-genre.png";
-        var rap_select = "https://i.ibb.co/yy23y1h/rap-select.png";
-        //<img src="https://i.ibb.co/yy23y1h/rap-select.png" alt="rap-select" border="0">
 
-        var image = document.getElementById('rap');
-        if (image.src.match(rap_src)) {
-            image.src = rap_select;
-        }
-        else {
-            image.src = rap_src;
-        }
-    }
-
-    function changePop() {
-        var pop_src = "https://i.ibb.co/dmyxF86/pop-genre.png";
-        var pop_select = "https://i.ibb.co/D44pV9W/pop-select.png";
-        //<img src="https://i.ibb.co/D44pV9W/pop-select.png" alt="pop-select" border="0">
-        var image = document.getElementById('pop');
-        if (image.src.match(pop_src)) {
-            image.src = pop_select;
-        }
-        else {
-            image.src = pop_src;
-        }
-    }
-
-    function changeIndie() {
-        var ind_src = "https://i.ibb.co/N25Vjtv/indie-genre-1.png";
-        var ind_select = "https://i.ibb.co/MP7CGSQ/indie-select.png"
-        //<img src="https://i.ibb.co/MP7CGSQ/indie-select.png" alt="indie-select" border="0">       
-        var image = document.getElementById('indie');
-        if (image.src.match(ind_src)) {
-            image.src = ind_select;
-        }
-        else {
-            image.src = ind_src;
-        }
-    }
-
-</script>
 
 
 <body style="background-color: #474646">
@@ -152,7 +111,9 @@
             <div class="w-100"></div>
             <div class="col" style="height: 14vh">
                 <div id="buttonBox">
-                    <a href="/draw/rap_artists" class="button">Done</a>
+                    <form action="/" method="get">
+                        <button class="button" id="next" formaction="/draw/rap_artists" type="submit">Done</button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -161,9 +122,81 @@
 
 </body>
 
+<script type="text/javascript">
+    
+        function changeRap() {
+            var rap_src = "https://i.ibb.co/7SQC88Q/Copy-of-rap-genre.png";
+            var rap_select = "https://i.ibb.co/yy23y1h/rap-select.png";
+            //<img src="https://i.ibb.co/yy23y1h/rap-select.png" alt="rap-select" border="0">
+    
+            var image = document.getElementById('rap');
+            if (image.src.match(rap_src)) {
+                image.src = rap_select;
+            }
+            else {
+                image.src = rap_src;
+            }
+            sessionStorage.setItem("Genre_1_name", "rap");
+            sessionStorage.setItem("Genre_1_src", rap_src);
+        }
+    
+        function changePop() {
+            var pop_src = "https://i.ibb.co/dmyxF86/pop-genre.png";
+            var pop_select = "https://i.ibb.co/D44pV9W/pop-select.png";
+            //<img src="https://i.ibb.co/D44pV9W/pop-select.png" alt="pop-select" border="0">
+            var image = document.getElementById('pop');
+            if (image.src.match(pop_src)) {
+                image.src = pop_select;
+            }
+            else {
+                image.src = pop_src;
+            }
+            sessionStorage.setItem("Genre_2_name", "pop");
+            sessionStorage.setItem("Genre_2_src", pop_src);
+        }
+    
+        function changeIndie() {
+            var ind_src = "https://i.ibb.co/N25Vjtv/indie-genre-1.png";
+            var ind_select = "https://i.ibb.co/MP7CGSQ/indie-select.png"
+            //<img src="https://i.ibb.co/MP7CGSQ/indie-select.png" alt="indie-select" border="0">       
+            var image = document.getElementById('indie');
+            if (image.src.match(ind_src)) {
+                image.src = ind_select;
+            }
+            else {
+                image.src = ind_src;
+            }
+            sessionStorage.setItem("Genre_3_name", "indie");
+            sessionStorage.setItem("Genre_3_src", ind_src);
+        }
+    
+        var next = document.getElementById("next");
+        if (next.addEventListener) {
+            next.addEventListener("click", clickFunction, false);
+        } 
+        else if (next.attachEvent) {
+            next.attachEvent('onclick', clickFunction);
+        }
+        function clickFunction() {
+            if (sessionStorage.getItem("Genre_1_name") == "rap") {
+                $('#next').attr('formaction', '/draw/rap_artists')
+            }
+            else if (sessionStorage.getItem("Genre_2_name") == "pop") {
+                $('#next').attr('formaction', '/draw/pop_artists')
+            }
+            else if (sessionStorage.getItem("Genre_3_name") == "indie") {
+                $('#next').attr('formaction', '/draw/indie_artists')
+            }
+            else {
+                $('#next').attr('formaction', '/draw/version')
+            }
+        }
+    
+    </script>
+
 </html>
 
-<!-- <div class="container-fluid" style="height: 100vh">
+<!-- <div class="container-fluid" style="height: 100vh"> 
         <div class="row">
             <div class="col" style="height: 5vh"></div>
             <div class="w-100"></div>

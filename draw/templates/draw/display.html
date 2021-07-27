@@ -23,6 +23,7 @@
     .text {
         color:white;
         text-align: center;
+        margin-top:50px;
     }
 
     </style>
@@ -50,21 +51,214 @@ var socket = new WebSocket(
 
 socket.onmessage = function(receivedMessage) {
     var received = JSON.parse(receivedMessage.data);
-    console.log(received);
     if (received.version == "display") {
-        console.log(received.name);
 
         const user = document.createElement("h3");
 
-        const name = document.createTextNode("Name: " + received.name);
+        const name = document.createTextNode(received.name + " likes ");
+
+        var size = 50;
+      /*  var image = document.createElement('img');
+        image.attr('src', received.genre_1_src);
+        
+        image.attr('height', size);
+        image.attr('width', size);*/
 
         user.className = "text";
 
         user.appendChild(name);
+
+        try {
+            if (received.genre_1_name != "null") {
+                var image = $('<img />', { 
+                    id: 'bubbles',
+                    src: received.genre_1_src,
+                    alt: received.genre_1_name,
+                    width: size,
+                    height: size,
+                    display: 'inline-block'
+                });
+
+                image.appendTo(user);
+            }
+
+            if (received.genre_2_name != "null") {
+                var image2 = $('<img />', { 
+                    id: 'bubbles',
+                    src: received.genre_2_src,
+                    alt: received.genre_2_name,
+                    width: size,
+                    height: size,
+                    display: 'inline-block'
+                });
+
+                image2.appendTo(user);
+            }
+
+            if (received.genre_3_name != "null") {
+                var image3 = $('<img />', { 
+                    id: 'bubbles',
+                    src: received.genre_3_src,
+                    alt: received.genre_3_name,
+                    width: size,
+                    height: size,
+                    display: 'inline-block'
+                });
+            }
+
+            image3.appendTo(user);
+
+        } catch(err) {
+
+        }
+
+        const artists = document.createTextNode(" and their favorite artists are ");
+
+        user.appendChild(artists);
+
+        try {
+            if (received.artist_1_name != "null") {
+                var image = $('<img />', { 
+                    id: 'bubbles',
+                    src: received.artist_1_src,
+                    alt: received.artist_1_name,
+                    width: size,
+                    height: size,
+                    display: 'inline-block'
+                });
+
+                image.appendTo(user);
+            }
+
+            if (received.artist_2_name != "null") {
+                var image2 = $('<img />', { 
+                    id: 'bubbles',
+                    src: received.artist_2_src,
+                    alt: received.artist_2_name,
+                    width: size,
+                    height: size,
+                    display: 'inline-block'
+                });
+
+                image2.appendTo(user);
+            }
+
+            if (received.artist_3_name != "null") {
+                var image3 = $('<img />', { 
+                    id: 'bubbles',
+                    src: received.artist_3_src,
+                    alt: received.artist_3_name,
+                    width: size,
+                    height: size,
+                    display: 'inline-block'
+                });
+
+                image3.appendTo(user);
+            }
+
+            if (received.artist_4_name != "null") {
+                var image4 = $('<img />', { 
+                    id: 'bubbles',
+                    src: received.artist_4_src,
+                    alt: received.artist_4_name,
+                    width: size,
+                    height: size,
+                    display: 'inline-block'
+                });
+
+                image4.appendTo(user);
+            }
+
+            if (received.artist_5_name != "null") {
+                var image5 = $('<img />', { 
+                    id: 'bubbles',
+                    src: received.artist_5_src,
+                    alt: received.artist_5_name,
+                    width: size,
+                    height: size,
+                    display: 'inline-block'
+                });
+
+                image5.appendTo(user);
+            }
+
+            if (received.artist_6_name != "null") {
+                var image6 = $('<img />', { 
+                    id: 'bubbles',
+                    src: received.artist_6_src,
+                    alt: received.artist_6_name,
+                    width: size,
+                    height: size,
+                    display: 'inline-block'
+                });
+
+                image6.appendTo(user);
+            }
+
+        } catch(err) {
+
+        }
+
+        const album = document.createTextNode("\nOne of their must-see albums are ");
+
+        user.appendChild(album);
+
+        try {
+            if (received.album_name != "null") {
+                var image = $('<img />', { 
+                    id: 'bubbles',
+                    src: received.album_src,
+                    alt: received.album_name,
+                    width: size,
+                    height: size,
+                    display: 'inline-block'
+                });
+
+                image.appendTo(user);
+            }
+
+        } catch(err) {
+
+        }
+
+        const songs = document.createTextNode("\n. Some of their awesome songs are ");
+
+        user.appendChild(songs);
+
+        try {
+            if (received.songs_1_name != "null") {
+                const song = document.createTextNode(received.songs_1_name);
+
+                user.appendChild(song);
+            }
+            if (received.songs_2_name != "null") {
+                const song = document.createTextNode(received.songs_2_name);
+
+                user.appendChild(song);
+            }
+            if (received.songs_3_name != "null") {
+                const song = document.createTextNode(received.songs_3_name);
+
+                user.appendChild(song);
+            }
+            if (received.songs_4_name != "null") {
+                const song = document.createTextNode(received.songs_4_name);
+
+                user.appendChild(song);
+            }
+
+        } catch(err) {
+
+        }
+
+        const space = document.createTextNode("\n \n");
+
+        user.appendChild(space);
         
 
         const bubble = document.getElementById("map");
         bubble.appendChild(user);
+        
     }
 }
 

@@ -61,37 +61,7 @@
 
 </style>
 
-<script type="text/javascript">
-    function changeGlass() {
-        var glass_src = "https://i.ibb.co/qpBYrZ6/glass.png";
-        var glass_select = "https://i.ibb.co/BrQLS7M/glass-select.png";
-        //<img src="https://i.ibb.co/BrQLS7M/glass-select.png" alt="glass-select" border="0"></a>        
-        var image = document.getElementById('glass');
-        if (image.src.match(glass_src)) {
-            image.src = glass_select;
-        }
-        else {
-            image.src = glass_src;
-        }
-    }
 
-    function changeAriana() {
-        var ari_src = "https://i.ibb.co/nmQfCTv/ariana.png";
-        var ari_select = "https://i.ibb.co/N3rFf20/ariana-select.png";
-        //<img src="https://i.ibb.co/N3rFf20/ariana-select.png" alt="ariana-select" border="0">
-        var image = document.getElementById('ariana');
-        if (image.src.match(ari_src)) {
-            image.src = ari_select;
-        }
-        else {
-            image.src = ari_src;
-        }
-    }
-
-
-    
-
-</script>
 
 
 <body style="background-color: #474646">
@@ -132,7 +102,7 @@
             <div class="w-100"></div>
             <div class="col" style="height: 14vh">
                 <div id="buttonBox">
-                    <a href="/draw/indie_artists" class="button">Done</a>
+                    <a href="/draw/indie_artists" id = "next" class="button">Done</a>
                 </div>
             </div>
         </div>
@@ -140,6 +110,60 @@
 
 
 </body>
+
+<script type="text/javascript">
+    function changeGlass() {
+        var glass_src = "https://i.ibb.co/qpBYrZ6/glass.png";
+        var glass_select = "https://i.ibb.co/BrQLS7M/glass-select.png";
+        //<img src="https://i.ibb.co/BrQLS7M/glass-select.png" alt="glass-select" border="0"></a>        
+        var image = document.getElementById('glass');
+        if (image.src.match(glass_src)) {
+            image.src = glass_select;
+        }
+        else {
+            image.src = glass_src;
+        }
+
+        sessionStorage.setItem("Pop_Artist_1_name", "Glass");
+        sessionStorage.setItem("Pop_Artist_1_src", glass_src);
+    }
+
+    function changeAriana() {
+        var ari_src = "https://i.ibb.co/nmQfCTv/ariana.png";
+        var ari_select = "https://i.ibb.co/N3rFf20/ariana-select.png";
+        //<img src="https://i.ibb.co/N3rFf20/ariana-select.png" alt="ariana-select" border="0">
+        var image = document.getElementById('ariana');
+        if (image.src.match(ari_src)) {
+            image.src = ari_select;
+        }
+        else {
+            image.src = ari_src;
+        }
+
+        sessionStorage.setItem("Pop_Artist_2_name", "Ariana");
+        sessionStorage.setItem("Pop_Artist_2_src", ari_src);
+    }
+
+    var next = document.getElementById("next");
+    if (next.addEventListener) {
+        next.addEventListener("click", clickFunction, false);
+    } 
+    else if (next.attachEvent) {
+        next.attachEvent('onclick', clickFunction);
+    }
+    function clickFunction() {
+         if (sessionStorage.getItem("Genre_3_name") == "indie") {
+            $('#next').attr('href', '/draw/indie_artists')
+        }
+        else {
+            $('#next').attr('href', '/draw/version')
+        }
+    }
+
+
+    
+
+</script>
 
 </html>
 

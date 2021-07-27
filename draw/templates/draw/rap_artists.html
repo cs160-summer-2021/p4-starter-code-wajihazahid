@@ -61,37 +61,7 @@
 
 </style>
 
-<script type="text/javascript">
-    function changeCudi() {
-        var cudi_src = "https://i.ibb.co/sjqzWwd/cudi-1.png";
-        var cudi_select = "https://i.ibb.co/tK5G4vG/cudi-select.png";
-        //<img src="https://i.ibb.co/tK5G4vG/cudi-select.png" alt="cudi-select" border="0">
-        var image = document.getElementById('cudi');
-        if (image.src.match(cudi_src)) {
-            image.src = cudi_select;
-        }
-        else {
-            image.src = cudi_src;
-        }
-    }
 
-    function changeKanye() {
-        var kanye_src = "https://i.ibb.co/QYz5pCT/kanye.png";
-        var kanye_select = "https://i.ibb.co/5h4W1M5/kanye-select.png";
-        //<img src="https://i.ibb.co/5h4W1M5/kanye-select.png" alt="kanye-select" border="0">    
-        var image = document.getElementById('kanye');
-        if (image.src.match(kanye_src)) {
-            image.src = kanye_select;
-        }
-        else {
-            image.src = kanye_src;
-        }
-    }
-
-
-    
-
-</script>
 
 
 <body style="background-color: #474646">
@@ -132,7 +102,7 @@
             <div class="w-100"></div>
             <div class="col" style="height: 14vh">
                 <div id="buttonBox">
-                    <a href="/draw/pop_artists" class="button">Done</a>
+                    <a href="/draw/pop_artists" id = "next" class="button">Done</a>
                 </div>
             </div>
         </div>
@@ -140,6 +110,62 @@
 
 
 </body>
+
+<script type="text/javascript">
+    function changeCudi() {
+        var cudi_src = "https://i.ibb.co/sjqzWwd/cudi-1.png";
+        var cudi_select = "https://i.ibb.co/tK5G4vG/cudi-select.png";
+        //<img src="https://i.ibb.co/tK5G4vG/cudi-select.png" alt="cudi-select" border="0">
+        var image = document.getElementById('cudi');
+        if (image.src.match(cudi_src)) {
+            image.src = cudi_select;
+        }
+        else {
+            image.src = cudi_src;
+        }
+
+        sessionStorage.setItem("Rap_Artist_1_name", "Cudi");
+        sessionStorage.setItem("Rap_Artist_1_src", cudi_src);
+    }
+
+    function changeKanye() {
+        var kanye_src = "https://i.ibb.co/QYz5pCT/kanye.png";
+        var kanye_select = "https://i.ibb.co/5h4W1M5/kanye-select.png";
+        //<img src="https://i.ibb.co/5h4W1M5/kanye-select.png" alt="kanye-select" border="0">    
+        var image = document.getElementById('kanye');
+        if (image.src.match(kanye_src)) {
+            image.src = kanye_select;
+        }
+        else {
+            image.src = kanye_src;
+        }
+        sessionStorage.setItem("Rap_Artist_2_name", "Kanye");
+        sessionStorage.setItem("Rap_Artist_2_src", kanye_src);
+    }
+
+
+    var next = document.getElementById("next");
+    if (next.addEventListener) {
+        next.addEventListener("click", clickFunction, false);
+    } 
+    else if (next.attachEvent) {
+        next.attachEvent('onclick', clickFunction);
+    }
+    function clickFunction() {
+        if (sessionStorage.getItem("Genre_2_name") == "pop") {
+            $('#next').attr('href', '/draw/pop_artists')
+        }
+        else if (sessionStorage.getItem("Genre_3_name") == "indie") {
+            $('#next').attr('href', '/draw/indie_artists')
+        }
+        else {
+            $('#next').attr('href', '/draw/version')
+        }
+    }
+
+    
+
+</script>
 
 </html>
 

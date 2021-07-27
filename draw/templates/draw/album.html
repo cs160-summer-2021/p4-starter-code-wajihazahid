@@ -73,6 +73,9 @@
         else {
             image.src = dream_src;
         }
+
+        sessionStorage.setItem("Album_name", "dreamland");
+        sessionStorage.setItem("Album_src", dream_src);
     }
 
     function changeMOTM() {
@@ -86,6 +89,9 @@
         else {
             image.src = motm_src;
         }
+
+        sessionStorage.setItem("Album_name", "motm");
+        sessionStorage.setItem("Album_src", motm_src);
     }
 
     function changeImmunity() {
@@ -99,6 +105,9 @@
         else {
             image.src = imm_src;
         }
+
+        sessionStorage.setItem("Album_name", "immunity");
+        sessionStorage.setItem("Album_src", immunity_src);
     }
 
     
@@ -118,7 +127,7 @@
             </div>
             <div class="w-100"></div>
             <div class="col"style="height: 14vh">
-                <h1>Pick 3 no-skip albums:</h1>
+                <h1>Pick 2 no-skip albums:</h1>
             </div>
             <div class="w-100"></div>
             <div class="col" style="height: 23vh" align="center">
@@ -129,7 +138,7 @@
             </div>
             <div class="w-100"></div>
             <div class="col" style="height: 23vh" align="center">
-                <img src="https://i.ibb.co/F8Rm9hp/immunity-1.png" id="immunity" border="0" width="370" height="370" onclick="changeImmunity()">
+                <img src="https://i.ibb.co/F8Rm9hp/immunity-1.png" id="immunity" border="0" width="370" height="370">
             </div>
             <div class="col" align="center">
                 <img src="https://i.ibb.co/1RHRFLL/ye.png" alt="ye" border="0" width="370" height="370">

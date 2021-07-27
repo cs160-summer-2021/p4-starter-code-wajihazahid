@@ -7,57 +7,149 @@
     <title>P4 Drawing</title>
 
     <link rel="stylesheet" type="text/css" href="{% static 'draw/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Chettan+2&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@1,700&display=swap" rel="stylesheet">
+
     <script type="text/javascript" src="{% static 'draw/vendor/jquery/jquery-3.3.1.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'draw/vendor/paper/paper-full.min.js' %}"></script>
 
     <style type="text/css">
-    
-    #next {
-        background-color: aqua; 
-    }
-
     </style>
 
 </head>
-<body>
+
+
+<style type="text/css">
+
+        /*#logo{
+            background-color: #474646;
+            padding-top: 225px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 58%;
+        }*/
+
+        #logo{
+            padding-top: 30px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 90%;
+        }
+
+        h1{
+            font-family: 'Baloo Chettan 2';
+            color: #f62681;
+            font-size: 90px;
+            padding-top: 200px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 65%;
+        }
+
+        h2{
+            font-family: 'Baloo Chettan 2';
+            color: white;
+            font-size: 60px;
+            padding-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+            width: 65%;
+        }
+
+        h3{
+            font-family: 'Baloo Chettan 2';
+            color: white;
+        }
+
+
+        #buttonBox{
+            padding-top: 150px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 35%;
+        }
+
+        .button {
+          background-color: white;
+          border: none;
+          color: black;
+          padding: 15px 60px;
+          border-radius: 8px;
+          white-space: nowrap;
+          text-align: center;
+          font-family: 'Baloo Chettan 2';
+          text-decoration: none;
+          display: inline-block;
+          font-size: 60px;
+        }
+
+        #userName {
+            width:400px;
+            height:100px;
+            box-sizing:border-box;
+            border:2px solid blue;
+            border-radius: 3px;
+            font-size:40px;
+            margin-left:280px;
+            text-align:center;
+        }
+        #field {
+            margin-top:50px;
+        }
+
+</style>
+
+
+<body style="background-color: #474646">
     <!-- You may change the dimensions of this canvas -->
-    <h1>Welcome</h1>
-    <form action="/action_page.php">
-        <label for="fname">Your Name</label>
-        <input type="text" id="userName" name="userName"><br><br>
-    </form>
-    <form action="/" method="get">
-        <button id="next" formaction="/draw/final" type="submit">Next</button>
-    </form>
+    <div id="logo">
+        <img src="https://i.ibb.co/TPmC7pR/music-link-logo-2.png" alt="music-link-logo-2" border="0" width="900" height="252">
+    </div>
+
+<!--     <h3>Connecting people through music.</h3> -->
+    <h1>Welcome!</h1>
+    <h2>Let's understand your music taste better so we can curate your matches.</h2>
+
+    <div id="field">
+        <form action="/action_page.php">
+            <input type="text" id="userName" name="userName" value="Your Name..."><br><br>
+        </form>
+    </div>
+    <!-- <div id="logo">
+        <img src="https://see.fontimg.com/api/renderfont4/MVVPp/eyJyIjoiZnMiLCJoIjoxOTgsInciOjEwMDAsImZzIjoxOTgsImZnYyI6IiNGRkZGRkYiLCJiZ2MiOiIjMDAwMDAwIiwidCI6MX0/QnJ1c2g/brush-king.png" alt="Brush fonts" width="800" height="320" class="center">
+    </div> -->
+    <div id="buttonBox">
+        <!-- <button type="button">New Coloring</button> -->
+        <!-- <a href="/coloring/timer_screen" class="button">New Coloring</a> -->
+        <a href="/draw/genres_1" class="button" id="next">Let's Go</a>
+    </div>
+
+
     
+
+
+
+
 </body>
-<script>
 
+<script type="text/javascript">
+    sessionStorage.clear();
 
-var uid = (Date.now() % 10000).toString();
+    var next = document.getElementById("next");
+    if (next.addEventListener) {
+        next.addEventListener("click", clickFunction, false);
+    } 
+    else if (next.attachEvent) {
+        next.attachEvent('onclick', clickFunction);
+    }
 
-
-
-
-var socket = new WebSocket(
-    'ws://' + window.location.host + '/ws/draw');
-
-
-var next = document.getElementById("next");
-
-if (next.addEventListener) {
-    next.addEventListener("click", clickFunction, false);
-} 
-else if (next.attachEvent) {
-    next.attachEvent('onclick', clickFunction);
-}
-
-function clickFunction() {
-    var name = $("#userName").val();
-    sessionStorage.setItem("Name", name);
-    sessionStorage.setItem("Uid", uid);
-    //socket.send("{\"version\" : \"final\", \"uid\" : \"" + uid + "\", \"name\" : \"" + name + "\"}");
-}
-
+    function clickFunction() {
+        var name = $("#userName").val();
+        sessionStorage.setItem("Name", name);
+    }
 </script>
+
 </html>
